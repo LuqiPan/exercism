@@ -13,8 +13,7 @@
   (let [word1-lower (s/lower-case word1)
         word2-lower (s/lower-case word2)]
     (and (not= word1-lower word2-lower)
-         (= (get-char-count word1-lower)
-            (get-char-count word2-lower)))))
+         (apply = (map get-char-count [word1-lower word2-lower])))))
 
 (defn anagrams-for
   [word words]
