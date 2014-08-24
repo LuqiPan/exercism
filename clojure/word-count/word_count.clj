@@ -9,8 +9,6 @@
 (defn word-count
   [string]
   (reduce (fn [counts word]
-            (if (get counts word)
-              (assoc counts word (inc (get counts word)))
-              (assoc counts word 1)))
+            (assoc counts word (inc (get counts word 0))))
           {}
           (sanitize string)))
