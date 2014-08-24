@@ -1,9 +1,11 @@
-(ns bob)
+(ns bob
+  (require [clojure.string :as s]))
 
 (defn response-for
-  [sentence]
+  [msg]
   (cond
-    (clojure.string/blank? sentence) "Fine. Be that way!"
-    (= (clojure.string/upper-case sentence) sentence) "Woah, chill out!"
-    (= (last sentence) \?) "Sure."
+    (s/blank? msg) "Fine. Be that way!"
+    (and (= (s/upper-case msg) msg)
+         (some? (re-seq #"[a-zA-Z]" msg))) "Woah, chill out!"
+    (= (last msg) \?) "Sure."
     :else "Whatever."))
