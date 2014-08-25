@@ -12,7 +12,8 @@
 (deftest test-verse
   (is (= verse-8 (beer_song/verse 8)))
   (is (= verse-2 (beer_song/verse 2)))
-  (is (= verse-1 (beer_song/verse 1))))
+  (is (= verse-1 (beer_song/verse 1)))
+  (is (= verse-0 (beer_song/verse 0))))
 
 (deftest test-song
   (is (= song-8-6 (beer_song/sing 8 6)))
