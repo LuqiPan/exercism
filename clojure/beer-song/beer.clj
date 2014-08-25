@@ -21,17 +21,25 @@
          bottles
          " of beer.\n")))
 
+(defn on-the-wall
+  [n]
+  (let [less (dec n)]
+    (str (pluralized-bottle (if (= less -1)
+                              99
+                              less))
+         " of beer on the wall.\n")))
+
 (defn second-sentence
   [n]
   (if (= n 0)
-    "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+    (str "Go to the store and buy some more, "
+         (on-the-wall n))
     (str "Take "
          (if (= n 1)
            "it"
            "one")
          " down and pass it around, "
-         (pluralized-bottle (dec n))
-         " of beer on the wall.\n")))
+         (on-the-wall n))))
 
 (defn verse
   [n]
