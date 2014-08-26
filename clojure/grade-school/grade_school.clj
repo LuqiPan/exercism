@@ -10,7 +10,7 @@
 
 (defn sorted
   [db]
-  (into {} (sort (reduce (fn [new-db map-key]
-                           (assoc new-db map-key (sort (get db map-key))))
+  (into {} (sort (reduce (fn [new-db student-grade]
+                           (assoc new-db student-grade (sort (get db student-grade))))
                          {}
                          (keys db)))))
