@@ -23,6 +23,5 @@
 
 (defn reset-name
   [r]
-  (swap! r
-         (fn [current-state]
-           {:name (rand-name)})))
+  (reset! r
+         {:name (rand-name)}))
