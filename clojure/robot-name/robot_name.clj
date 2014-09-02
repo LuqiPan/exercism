@@ -15,13 +15,13 @@
 (defn robot
   []
   (atom
-    {:name (rand-name)}))
+    (rand-name)))
 
 (defn robot-name
   [r]
-  (:name @r))
+  @r)
 
 (defn reset-name
   [r]
   (reset! r
-         {:name (rand-name)}))
+          (rand-name)))
